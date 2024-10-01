@@ -49,16 +49,16 @@ const AddCheckIn = ({ display = false, onClose }) => {
             className="fixed inset-0 bg-black bg-opacity-50 z-40"
             onClick={isUploading ? "" : onClose}
           ></div>
-          <div className="fixed top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center bg-zinc-800 p-20 rounded-lg z-50">
+          <div className="fixed top-[35%] md:top-[50%] left-0 md:left-[50%] transform md:-translate-x-1/2 md:-translate-y-1/2 flex flex-col justify-center items-center bg-zinc-800 p-4 md:p-8 xl:p-20 rounded-lg z-50 w-full md:w-fit mx-2">
             <button
               className="bg-violet-500 px-8 py-1 absolute top-0 right-0 rounded-md"
               onClick={isUploading ? "" : onClose}
             >
               X
             </button>
-            <div>
+            <div className="w-full md:w-fit space-y-2">
               {/* Title */}
-              <label htmlFor="title" className="text-2xl">
+              <label htmlFor="title" className="text-xl md:text-2xl capitalize">
                 Title:
               </label>
               <input
@@ -66,12 +66,12 @@ const AddCheckIn = ({ display = false, onClose }) => {
                 id="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="text-black px-4 py-1 mx-2 outline-none rounded-lg bg-zinc-100 text-2xl"
+                className="text-black px-2 md:px-4 py-1 mx-2 outline-none rounded-lg bg-zinc-100 md:text-2xl"
               />
               {/* Image */}
               <input
                 type="file"
-                className="text-2xl rounded-md"
+                className="text-xl md:text-2xl rounded-md w-fit"
                 onChange={(e) => setImageUpload(e.target.files[0])}
               />
             </div>

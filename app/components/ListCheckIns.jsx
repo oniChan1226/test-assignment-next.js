@@ -22,8 +22,8 @@ const ListCheckIns = () => {
 
   return (
     <div className="w-[80%] mx-auto mt-24">
-      <h1 className="text-4xl tracking-wide ">Added CheckIns</h1>
-      <div className="grid grid-cols-4 gap-5 place-items-center my-4">
+      <h1 className="text-2xl md:text-4xl tracking-wide ">Added CheckIns</h1>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 place-items-center my-4">
         {checkIns.map((checkIn) => (
           <div
             key={checkIn.id}

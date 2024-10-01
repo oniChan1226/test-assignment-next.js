@@ -40,9 +40,9 @@ const ViewDetails = ({ checkin, onClose }) => {
   return (
     <>
       <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={onClose}></div>
-      <div className="fixed top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center bg-zinc-800 p-20 rounded-lg z-50">
+      <div className="fixed top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 grid place-items-center bg-zinc-800 p-4 md:p-8 xl:p-20 rounded-lg z-50">
         <h1 className="text-2xl mb-4">Details</h1>
-        <div className="flex justify-between items-center gap-6">
+        <div className="flex justify-between items-center gap-2 md:gap-6">
           {/* Left side */}
           <div className="left space-y-2">
             {/* 1st inpuit fielfd */}
@@ -101,7 +101,7 @@ const ViewDetails = ({ checkin, onClose }) => {
             />
           </div>
         </div>
-        <div className="flex justify-between items-center gap-4 w-full">
+        <div className="flex justify-between items-center gap-2 md:gap-4 w-full">
             <button
             onClick={onClose}
             className="mt-4 px-4 py-2 bg-violet-500 hover:bg-violet-600 rounded-md text-white w-full"
