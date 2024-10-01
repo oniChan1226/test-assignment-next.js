@@ -2,6 +2,8 @@
 import Navbar, { Hero, AddCheckIn } from "./components";
 import { useState } from "react";
 import ListCheckIns from "./components/ListCheckIns";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   const [isAddModelOpen, setIsAddModelOpen] = useState(false);
@@ -9,8 +11,6 @@ export default function Home() {
   const handleAdd = () => {
     setIsAddModelOpen(prev => !prev);
   }
-
-
 
   return (
     <div className="relative">
@@ -23,6 +23,7 @@ export default function Home() {
         handleAdd={handleAdd}
       />
       <ListCheckIns />
+      <ToastContainer />
 
     </div>
   );

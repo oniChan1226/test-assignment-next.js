@@ -5,6 +5,7 @@ import { ClipLoader } from "react-spinners";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 import { v4 } from "uuid";
+import { toast } from 'react-toastify'
 
 const AddCheckIn = ({ display = false, onClose }) => {
   const [imageUpload, setImageUpload] = useState(null);
@@ -31,13 +32,13 @@ const AddCheckIn = ({ display = false, onClose }) => {
         bookedDate: moment().format("MMMM Do YYYY"),
       });
     } catch (error) {
-      console.log(`Error in AddCheckIn :: handleUpload: ${error}`);
+      toast.warning(`Error in AddCheckIn :: handleUpload: ${error}`);
     } finally {
-      alert("Data Uploaded");
+      toast.success("CheckIn Added");
       setTitle("");
       setImageUpload(null);
-      onClose();
       setIsUploading(false);
+      onClose();
     }
   };
 
@@ -56,7 +57,7 @@ const AddCheckIn = ({ display = false, onClose }) => {
             >
               X
             </button>
-            <div className="w-full md:w-fit space-y-2">
+            <div className="w-full md:w-fit space-y-8">
               {/* Title */}
               <label htmlFor="title" className="text-xl md:text-2xl capitalize">
                 Title:
@@ -66,12 +67,13 @@ const AddCheckIn = ({ display = false, onClose }) => {
                 id="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="text-black px-2 md:px-4 py-1 mx-2 outline-none rounded-lg bg-zinc-100 md:text-2xl"
+                className="text-black px-2 md:px-4 py-1 mx-2 outline-none rounded-lg bg-zinc-100 md:text-2xl focus:outline-violet-500"
               />
               {/* Image */}
               <input
                 type="file"
                 className="text-xl md:text-2xl rounded-md w-fit"
+                accept=".png, .jpg, .jpeg"
                 onChange={(e) => setImageUpload(e.target.files[0])}
               />
             </div>
